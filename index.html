@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ruhan Game Hack Shop</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #121212;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #00ccff;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background: #222;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    .tab-button {
+      padding: 8px 8px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 50px;
+      background: #222;
+      color: #ccc;
+      border: 2px solid #444;
+      margin: 0 10px;
+      font-size: 16px;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .tab-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(243, 156, 18, 0.2), transparent);
+      transition: left 0.4s ease-in-out;
+      z-index: 0;
+    }
+
+    .tab-button:hover::before {
+      left: 0;
+    }
+
+    .tab-button:hover {
+      color: #fff;
+      border-color: #f39c12;
+      box-shadow: 0 0 10px #f39c12, 0 0 20px #f39c12;
+      animation: glow 1.5s infinite alternate, bounce 0.8s ease-in-out;
+    }
+
+    .tab-button.active {
+      background: #f39c12;
+      color: #ffffff;
+      box-shadow: 0 0 10px #f39c12, 0 0 20px #f39c12;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 30px;
+      animation: fadeIn 0.3s ease;
+      flex: 1;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .app-card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 0 10px #000;
+      transition: 0.3s ease;
+    }
+
+    .app-card h3 {
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2em;
+    }
+
+    .app-card p {
+      margin: 0 0 15px;
+      color: #ccc;
+    }
+
+    .app-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+    }
+
+    .download-btn {
+      background: #f39c12;
+      color: #ffffff;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .download-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.4s ease-in-out;
+      z-index: 0;
+    }
+
+    .download-btn:hover::before {
+      left: 0;
+    }
+
+    footer {
+      background: #1f1f1f;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+
+    footer div {
+      font-weight: bold;
+      color: #f39c12;
+      margin-bottom: 5px;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px #000;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #f39c12;
+    }
+
+    .form-container label {
+      display: block;
+      margin-bottom: 5px;
+      color: #ccc;
+    }
+
+    .form-container input,
+    .form-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      background: #222;
+      border: 1px solid #444;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .form-container button {
+      background: #f39c12;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    .form-container button:hover {
+      background: #e08e0b;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 5px #f39c12, 0 0 10px #f39c12;
+      }
+      100% {
+        box-shadow: 0 0 20px #f39c12, 0 0 30px #f39c12;
+      }
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ruhan!Store</h1>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-button active" onclick="openTab(event, 'android')">Android Game</button>
+   
+  </div>
+
+  <div id="android" class="tab-content active">
+    <!-- Android apps content (unchanged) -->
+
+
+<div class="app-card">
+      <h3><img src="https://an1.com/uploads/posts/2025-05/1747037322_subway-surfers.png" class="app-logo" alt="">Subway Surfers</h3>
+      <p>Download Subway Surfers (MOD, Unlimited Coins/Keys) 4.1.0 free on android<p>
+      <a href="https://files.an1.net/subway-surfers-mod_4.1.0-an1.com.apk" download>
+        <button class="download-btn">Download</button>
+      </a>
+    </div>
+
+
+
+    <!-- Keep your original app cards here -->
+  </div>
+
+
+  <div id="request" class="tab-content">
+    <div class="form-container">
+      <h2>Request a Game</h2>
+      <form id="requestForm">
+        <label for="gameName">Game Name</label>
+        <input type="text" id="gameName" name="gameName" required>
+
+        <label for="platform">Platform</label>
+        <input type="text" id="platform" name="platform" placeholder="e.g., Android, iOS" required>
+
+        <label for="details">Additional Details</label>
+        <textarea id="details" name="details" rows="4" placeholder="Any specific version, features, etc."></textarea>
+
+        <button type="submit">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div>RUHAN SHOP</div>
+    &copy; 2025 All rights reserved.
+  </footer>
+
+  <script>
+    function openTab(evt, tabName) {
+      const tabContents = document.querySelectorAll(".tab-content");
+      const tabButtons = document.querySelectorAll(".tab-button");
+
+      tabContents.forEach(tc => tc.classList.remove("active"));
+      tabButtons.forEach(btn => btn.classList.remove("active"));
+
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+
+    // Handle form submission
+    document.getElementById('requestForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const gameName = document.getElementById('gameName').value;
+      const platform = document.getElementById('platform').value;
+      const details = document.getElementById('details').value;
+
+      const webhookURL = 'https://discord.com/api/webhooks/1372179200748027914/NwHerKZchNyZFPitoB_96SZgB5BfYFcwGxkTV1uwustgTULxK62elqhuUYi4sys6K6Vn';  // Replace this with your actual Discord Webhook URL
+
+      const payload = {
+        content: `**New Game Request**\n\n**Game Name:** ${gameName}\n**Platform:** ${platform}\n**Details:** ${details}`,
+      };
+
+      fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert('Request submitted successfully!');
+        document.getElementById('requestForm').reset();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('There was an error submitting your request.');
+      });
+    });
+  </script>
+
+</body>
+</html>
